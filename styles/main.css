@@ -28,6 +28,7 @@
     font-size: 60%; /* controle das medidas rem */
 }
 
+html,
 body{
     height: 100vh;
 }
@@ -45,7 +46,44 @@ body,input,button,textarea{
 }
 
 #container{
-    width: 90vh;
-    max-width: 700px; /* Esta informando que após passar dos  700px para de ajustar */
+    width: 90vw;
+    max-width: 700px; /* Esta informando que após passar dos  700px para de ajustar */  
+}
+
+@media(max-width:1100px){
+    .logo-container{
+        text-align: center;        
+        margin: 0;
+    }
+}
+
+@media(min-width:1100px){ /*quando a tela for maior que 1100 px ele muda a max-width de 700px para 1100px*/
+    #page-landing #container{
+        max-width:1100px;
+        display: grid; /*esta usando um grid no container*/
+        grid-template-columns: 2fr 1fr 2fr; /*fracionado em 3 partes */
+        grid-template-rows: 350px 1fr;
+        grid-template-areas: /*definir o que estará em cada linha no grid*/
+        "proffy image image" 
+        "button button texting" 
+    }
+
+    /*Agora precisa avisar para o codigo é cada uma das coisas do grid-template-areas*/
     
+    .logo-container{
+        grid-area: proffy;
+        text-align: initial;
+        align-self: center;
+        margin: 0;
+    }
+
+    .hero-image{
+        grid-area: image;
+    }
+    .buttonns-container{
+        grid-area: button;
+    }
+    .total-connections{
+        grid-area:texting;
+    }
 }
